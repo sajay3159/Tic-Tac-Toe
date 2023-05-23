@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe Game</title>
+
+    <style>
+        section {
+            text-align: center;
+        }
+
+        .title {
+            font-size: 40px;
+            color: #2fd72f;
+            margin: 10px auto;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, auto);
+            width: 23%;
+            margin: 10px auto;
+            background-color: #820013;
+            color: #04c0b2;
+        }
+
+        .cell {
+            height: 50px;
+            border: 1px solid #000000;
+            cursor: pointer;
+            font-size: 30px;
+        }
+
+      
+    </style>
+</head>
+<body>
+    <section>
+        <h1 class="title">Tic Tac Toe</h1>
+        <div class="container">
+            <div id="1" class="cell" onClick= takeTurn(1)></div>
+            <div id="2" class="cell" onClick= takeTurn(2)></div>
+            <div id="3" class="cell" onClick= takeTurn(3)></div>
+            <div id="4" class="cell" onClick= takeTurn(4)></div>
+            <div id="5" class="cell" onClick= takeTurn(5)></div>
+            <div id="6" class="cell" onClick= takeTurn(6)></div>
+            <div id="7" class="cell" onClick= takeTurn(7)></div>
+            <div id="8" class="cell" onClick= takeTurn(8)></div>
+            <div id="9" class="cell" onClick= takeTurn(9)></div>
+        </div>
+
+        <script>
+            var counter = 0;
+            function takeTurn(id){
+                var clickedBox = document.getElementById(id);
+                if(clickedBox.innerText === ""){
+                counter++;
+                clickedBox.innerText = counter % 2 !== 0 ? "X" : "0";
+                if (counter >= 9){
+                    setTimeout(reset, 2000);
+                }
+              }
+            }
+            function reset(){
+                counter = 0;
+                var list = document.getElementsByClassName("cell")
+                for (var i = 0; i < list.length; i++) {
+                    list[i].innerText = "";
+                }
+            }
+        </script>
+    </section>
+    
+</body>
+</html>
