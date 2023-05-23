@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe Game</title>
+
+    <style>
+        section {
+            text-align: center;
+        }
+
+        .title {
+            font-size: 40px;
+            color: #2fd72f;
+            margin: 10px auto;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, auto);
+            width: 306px;
+            margin: 10px auto;
+            background-color: #820013;
+            color: #04c0b2;
+        }
+
+        .cell {
+            height: 50px;
+            border: 1px solid #000000;
+            cursor: pointer;
+            font-size: 30px;
+        }
+
+      
+    </style>
+</head>
+<body>
+    <section>
+        <h1 class="title">Tic Tac Toe</h1>
+        <div class="container">
+            <div index="0" class="cell"></div>
+            <div index="1" class="cell"></div>
+            <div index="2" class="cell"></div>
+            <div index="3" class="cell"></div>
+            <div index="4" class="cell"></div>
+            <div index="5" class="cell"></div>
+            <div index="6" class="cell"></div>
+            <div index="7" class="cell"></div>
+            <div index="8" class="cell"></div>
+        </div>
+
+        <script>
+             const cells = document.querySelectorAll('.cell');
+            console.log(cells);
+
+            let currentPlayer = 'X';
+            let isGameActive = true;
+
+            cells.forEach(cell => {
+                cell.addEventListener('click', () => {
+                    if (cell.innerText === '' && isGameActive) {
+                        cell.innerText = currentPlayer;
+                        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+                    }
+                });
+            });
+        </script>
+    </section>
+    
+</body>
+</html>
